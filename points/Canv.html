@@ -1,0 +1,39 @@
+<!doctype html>
+
+<html data-ng-app=canvApp>
+
+<head>
+  <title>Drawing points on HTML5 canvas</title>
+  <script src="../js/angular.js"></script>
+  <script src="CanvController.js"></script>
+</head>
+
+<body>
+  <div id="testing" style="margin: 26px">
+    <div data-ng-controller="CanvasController">
+      <h3> Points and Lines! </h3>
+      <form data-ng-submit="addPoint()">
+
+        <input data-ng-model="x" size="2" placeholder="x"
+          required type="number">
+        <input data-ng-model="y" size="2" placeholder="y"
+          required type="number">
+        <input data-ng-model="radius" size="5" placeholder="radius"
+          required type="number">
+        <input class="btn-primary" type="submit" value="add circle!">
+      </form>
+
+      <canvas id="canvas" style="border: 1px solid black; float: left"></canvas>
+      <div id="lat" style="margin: 20px; float: left">
+        Points:
+        <ul>
+          <a data-ng-click="removePoint(point)">
+            <li data-ng-repeat="point in points">
+              ({{point.x}},{{point.y}}) -- r: {{point.radius}}
+            </li>
+          </a>
+        </ul>
+      </div>
+    </div>
+  </div>
+</body>
